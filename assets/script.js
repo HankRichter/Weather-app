@@ -9,23 +9,39 @@ const weatherBaseURL = "https://api.openweathermap.org/data/2.5/weather?q=";
 const weatherAPIKey = "&appid=3ea36f8f67b0fbc770aed01a9cb37854";
 const imperialUnits = "&units=imperial";
 
+
 function weatherFetcher() {
   const dailyWeather =
-    weatherBaseURL + cityInput.value + imperialUnits + weatherAPIKey;
-
+  weatherBaseURL + cityInput.value + imperialUnits + weatherAPIKey;
+  
   fetch(dailyWeather, {
-    cache: "reload",
+      cache: "reload",
   })
-    .then(function (response) {
+  .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      const icon = document.createElement("img");
-      currentCity.textContent = data.name + "" + data.weather[0].icon;
-      currentTemp.textContent = "Temp:" + data.main.temp;
-      currentWind.textContent = "Wind:" + data.wind.speed + " MPH";
-      currentHumidity.textContent = "Humidity:" + data.main.humidity + " %";
+        console.log(data);
+        const icon = document.createElement("img");
+        currentCity.textContent = data.name + "" + data.weather[0].icon;
+        currentTemp.textContent = "Temp:" + data.main.temp;
+        currentWind.textContent = "Wind:" + data.wind.speed + " MPH";
+        currentHumidity.textContent = "Humidity:" + data.main.humidity + " %";
+        
+        const lat = data.coord.lat
+        const lon = data.coord.lon
+
+        const fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + weatherAPIKey + imperialUnits +"&cnt=5"
+        
+        fetch(fiveDayURL, {
+            cache: "reload",
+        })
+        .then(function (response) {
+            return response.json();
+          })
+          .then(function (data){
+              console.log(data);
+            })
     });
 }
 
