@@ -22,16 +22,28 @@ header {
 }
 
 .container3 {
-  height: 100px;
-  padding-left: 20px;
   width: 70%;
   /* This will need a media quiery so flex wrap works on mobile */
-  border: solid 0.5px;
   margin-left: 10px;
 }
 
 .container4 {
-  display: block;
+  display: flex;
+  flex-direction: row;
+}
+
+.container5 {
+  width: 25%;
+}
+
+.container6 {
+  width: 60%;
+  margin-left: 10px;
+  flex-direction: row;
+}
+
+.five-day-forecast {
+  display: flex;
 }
 
 h1 {
@@ -64,4 +76,26 @@ button {
 
 button:hover {
   border-width: thin;
+}
+
+.current {
+  margin-bottom: 2px;
+  padding-left: 15px;
+}
+
+.current-container {
+  border: solid 0.05px;
+  width: 68.5%;
+  margin: 10px;
+}
+
+.day {
+  margin-right: 15px;
+  background-color: #36096d;
+  color: white;
+  width: 15%;
+}
+
+.daymodifier {
+  padding: 10px;
 }
