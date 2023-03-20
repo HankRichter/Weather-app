@@ -8,6 +8,10 @@ const currentTemp = document.querySelector(".current-temp");
 const currentWind = document.querySelector(".current-wind");
 const currentHumidity = document.querySelector(".current-humidity");
 const currentContainer = document.querySelector(".current-container");
+const date = document.querySelectorAll(".Date")
+const temp = document.querySelectorAll(".Temp")
+const wind = document.querySelectorAll(".Wind")
+const humidity = document.querySelectorAll(".Humidity")
 const weatherBaseURL = "https://api.openweathermap.org/data/2.5/weather?q=";
 const weatherAPIKey = "&appid=3ea36f8f67b0fbc770aed01a9cb37854";
 const imperialUnits = "&units=imperial";
@@ -32,9 +36,9 @@ function weatherFetcher() {
       const icon = document.createElement("img");
       currentCity.textContent =
         data.name + "(" + today + ")" + data.weather[0].icon;
-      currentTemp.textContent = "Temp:" + data.main.temp;
-      currentWind.textContent = "Wind:" + data.wind.speed + " MPH";
-      currentHumidity.textContent = "Humidity:" + data.main.humidity + " %";
+      currentTemp.textContent = "Temp: " + data.main.temp + " F"
+      currentWind.textContent = "Wind: " + data.wind.speed + " MPH";
+      currentHumidity.textContent = "Humidity: " + data.main.humidity + " %";
 
       const lat = data.coord.lat;
       const lon = data.coord.lon;
@@ -45,8 +49,7 @@ function weatherFetcher() {
         "&lon=" +
         lon +
         weatherAPIKey +
-        imperialUnits +
-        "&cnt=5";
+        imperialUnits;
 
       fetch(fiveDayURL, {
         cache: "reload",
@@ -57,6 +60,27 @@ function weatherFetcher() {
         .then(function (dataFor5Day) {
           console.log(dataFor5Day);
           fiveDayForecast.style.display = "block";
+          const filteredData = dataFor5Day.list.filter((value, index) =>
+          index === 6 || index % 8 === 6) 
+          console.log(filteredData);
+        filteredData.forEach((item , index) =>{
+            const fiveDayDay = item.dt_txt;
+            console.log(fiveDayDay);
+            date[index].textContent = fiveDayDay
+            console.log(date);
+            const fiveDayTemp = item.main.temp
+            console.log(fiveDayTemp);
+            temp[index].textContent = "Temp: " + fiveDayTemp
+            console.log(temp);
+            const fiveDayWind = item.wind.speed
+            console.log(fiveDayWind);
+            wind[index].textContent = "Wind: " + fiveDayWind + " MPH";
+            console.log(wind);
+            const fiveDayHumidity = item.main.humidity
+            console.log(fiveDayHumidity);
+            humidity[index].textContent = "Humidity: " + fiveDayHumidity + " %";
+            console.log(humidity);
+            })
         });
     });
 }
