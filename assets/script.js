@@ -80,7 +80,7 @@ function weatherDataReplace(e) {
   );
   console.log(filteredData);
   filteredData.forEach((item, index) => {
-    fiveDayForecast.style.display = "block";
+    fiveDayForecast.style.display = "flex";
     const fiveDayDate = new Date(item.dt_txt).toLocaleDateString("en-US");
     fiveDayIcon[index].src = iconBuilder(item.weather[0].icon);
     fiveDayIcon[index].setAttribute("alt", item.weather[0].description);
@@ -154,7 +154,7 @@ function weatherFetcher() {
         .then(function (dataFor5Day) {
           console.log(dataFor5Day);
           dataTooStore.dataForFiveDay = dataFor5Day;
-          fiveDayForecast.style.display = "block";
+          fiveDayForecast.style.display = "flex";
           const filteredData = dataFor5Day.list.filter(
             (value, index) => index === 6 || index % 8 === 6
           );
