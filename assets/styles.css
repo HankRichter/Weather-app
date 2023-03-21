@@ -84,7 +84,7 @@ button:hover {
 }
 
 .current {
-  margin-bottom: 2px;
+  margin: 7px 0;
   padding-left: 15px;
 }
 
@@ -104,4 +104,8 @@ button:hover {
 
 .daymodifier {
   padding: 10px;
+}
+
+.iconWrapper {
+  display: flex;
 }
