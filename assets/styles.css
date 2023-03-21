@@ -37,14 +37,17 @@ header {
 }
 
 .container6 {
-  width: 60%;
+  width: 74%;
   margin-left: 10px;
-  flex-direction: row;
   display: none;
+  flex-wrap: wrap;
 }
 
 .five-day-forecast {
   display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 h1 {
@@ -91,21 +94,68 @@ button:hover {
 .current-container {
   display: none;
   border: solid 0.05px;
-  width: 68.5%;
-  /* margin: 10px; */
 }
 
-.day {
-  margin-right: 15px;
-  background-color: #36096d;
-  color: white;
-  width: 15%;
-}
 
 .daymodifier {
   padding: 10px;
+  width: 100%;
 }
 
+.day {
+  background-color: #36096d;
+  color: white;
+  width: 18%;
+  margin-left: 10px;
+}
 .iconWrapper {
   display: flex;
+}
+
+@media (max-width: 970px){
+  header{
+    width: auto;
+    height: auto;
+  }
+  .container2{
+    width: 100%;
+  }
+  .container3{
+    width: 100%;
+  }
+  .current-container{
+    width: 100%;
+  }
+  .container6{
+    width: 100%;
+  }
+  .container4{
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .container5{
+    width: 100%;
+  }
+  .five-day-forecast{
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px){
+  .five-day-forecast{
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+  }
+  .day{
+    width: 70%;
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+  .container6{
+    justify-content: center;
+  }
+  .container3{
+    margin: 0;
+  }
 }
