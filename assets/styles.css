@@ -80,6 +80,7 @@ button {
   border-radius: 5px;
   border-width: 0;
   color: white;
+  cursor: pointer;
 }
 
 button:hover {
@@ -110,6 +111,7 @@ button:hover {
 }
 .iconWrapper {
   display: flex;
+  align-items: center;
 }
 
 @media (max-width: 970px){
