@@ -114,6 +114,10 @@ button:hover {
   align-items: center;
 }
 
+.feedBackText{
+  display: none;
+}
+
 @media (max-width: 970px) {
   header {
     width: auto;
