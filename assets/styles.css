@@ -62,7 +62,7 @@ h2 {
 }
 
 h3 {
-  margin-bottom: 0;
+  margin: 0 0 10px 10px;
 }
 
 input {
@@ -95,8 +95,8 @@ button:hover {
 .current-container {
   display: none;
   border: solid 0.05px;
+  margin-left: 10px;
 }
-
 
 .daymodifier {
   padding: 10px;
@@ -114,50 +114,60 @@ button:hover {
   align-items: center;
 }
 
-@media (max-width: 970px){
-  header{
+@media (max-width: 970px) {
+  header {
     width: auto;
     height: auto;
   }
-  .container2{
+  .container2 {
     width: 100%;
   }
-  .container3{
+  .container3 {
     width: 100%;
   }
-  .current-container{
+  .current-container {
     width: 100%;
   }
-  .container6{
+  .container6 {
     width: 100%;
   }
-  .container4{
+  .container4 {
     width: 100%;
     flex-wrap: wrap;
   }
-  .container5{
+  .container5 {
     width: 100%;
   }
-  .five-day-forecast{
+  .five-day-forecast {
     width: 100%;
+  }
+  .current-container {
+    margin-left: 0;
+  }
+  h1 {
+    text-align: center;
+    padding: 0;
   }
 }
 
-@media (max-width: 720px){
-  .five-day-forecast{
+@media (max-width: 720px) {
+  .five-day-forecast {
     flex-direction: column;
     align-content: center;
     text-align: center;
   }
-  .day{
+  .day {
     width: 70%;
     margin-bottom: 10px;
     margin-left: 0;
   }
-  .container6{
+  .container6 {
     justify-content: center;
   }
-  .container3{
+  .container3 {
     margin: 0;
+  }
+  h3 {
+    margin-left: 0;
   }
 }
